@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://bgbdw6s5vvves"]
 
+[ext_resource type="Script" uid="uid://b4mntaf7rrbgn" path="res://scripts/game_manager.gd" id="1_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://beupmwapaq0i1" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="FontFile" uid="uid://ixnyaiuh1qyl" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_vtaks"]
 [ext_resource type="Texture2D" uid="uid://cslu10pqnsaro" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://d12t657rx8y6e" path="res://scenes/platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://udxiqsnc17v0" path="res://scenes/coin.tscn" id="5_iywne"]
@@ -340,6 +342,22 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=451029786]
 
+[node name="GameManager" type="Node" parent="." unique_id=196838764]
+unique_name_in_owner = true
+script = ExtResource("1_0tnpc")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=38642395]
+offset_left = 755.0
+offset_top = -382.0
+offset_right = 859.0
+offset_bottom = -359.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vtaks")
+theme_override_font_sizes/font_size = 8
+text = "You got X coins."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="." unique_id=2106083000]
 tile_set = SubResource("TileSet_lbhrr")
 format = 2
@@ -465,7 +483,9 @@ autoplay = &"move"
 [node name="Slime" parent="." unique_id=626575029 instance=ExtResource("7_u5sy4")]
 position = Vector2(310, 36)
 
-[node name="Label" type="Label" parent="." unique_id=1278593767]
+[node name="Labels" type="Node" parent="." unique_id=655820067]
+
+[node name="Label" type="Label" parent="Labels" unique_id=1278593767]
 offset_left = -99.0
 offset_top = 26.0
 offset_right = 11.0
@@ -475,7 +495,7 @@ theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 8
 text = "Space to jump."
 
-[node name="Label2" type="Label" parent="." unique_id=581529728]
+[node name="Label2" type="Label" parent="Labels" unique_id=581529728]
 offset_left = 247.0
 offset_top = -28.0
 offset_right = 373.0
@@ -486,7 +506,7 @@ theme_override_font_sizes/font_size = 8
 text = "This is Jerry. 
 Not a friendly guy..."
 
-[node name="Label3" type="Label" parent="." unique_id=1072511621]
+[node name="Label3" type="Label" parent="Labels" unique_id=1072511621]
 offset_left = 518.0
 offset_top = -201.0
 offset_right = 616.0
@@ -497,7 +517,7 @@ theme_override_font_sizes/font_size = 8
 text = "I'd rate falling 
 0 stars."
 
-[node name="Label4" type="Label" parent="." unique_id=263213791]
+[node name="Label4" type="Label" parent="Labels" unique_id=263213791]
 offset_left = 965.0
 offset_top = -302.0
 offset_right = 1063.0
@@ -506,3 +526,14 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 8
 text = "Keep going!"
+
+[node name="Label5" type="Label" parent="Labels" unique_id=1789183209]
+offset_left = 778.0
+offset_top = -400.0
+offset_right = 834.0
+offset_bottom = -377.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 8
+text = "Nice job!"
+horizontal_alignment = 1
